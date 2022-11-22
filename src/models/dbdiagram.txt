@@ -1,0 +1,150 @@
+
+https://dbdiagram.io/d/614b33ac825b5b01460e7dcc
+
+// Creating tables
+Table User {
+  id int
+  email varchar
+  password varchar
+  name varchar
+  picture int
+  subscriptionIsActive boolean
+  customerId varchar
+  subscriptionId varchar
+ }
+ 
+ Ref: "User"."id" < "UserTeamMember"."userId"
+ Ref: "UserTeamMember"."userInTeamId" - "User"."id"
+ 
+Table UserTeamMember {
+  id int
+  userId int
+  userInTeamId int
+  status enum
+ }
+
+Table Campaign {
+  id int
+  ownerId int
+  campaignType enum
+  pitchId varchar
+  status enum
+  title varchar
+  campaignDescription varchar
+  sender varchar
+  senderEmail varchar
+  picture int
+  step int
+  sheduleTime datetime
+  createdAt datetime
+}
+
+Ref: "User"."id" < "Campaign"."ownerId"
+
+Table CampaignAccess {
+  id int
+   userId int
+  campaignId int
+  status varchar
+ }
+ 
+Ref: "Campaign"."id" < "CampaignAccess"."campaignId"
+Ref: "User"."id" < "CampaignAccess"."userId"
+ 
+Table File {
+  id int
+  ownerId int
+  fileType enum
+  fileName varchar
+  status varchar
+  description varchar
+  size int
+  length varchar
+  words int
+  textTitle varchar
+  recognizedTextPreview varchar
+  recognizedTextPath varchar
+  fileSource varchar
+  createdAt timestamp
+ }
+ 
+Ref: "User"."id" < "File"."ownerId"
+ 
+Table Pitch {
+   id int
+   ownerId int
+   preliminaryStory int
+   preliminaryStoryOriginalId int
+   keyStory int
+   keyStoryOriginalId int
+   pitchText int
+   createdAt timestamp
+ }
+
+Ref: "Pitch"."id" < "Campaign"."pitchId"
+Ref: "Pitch"."preliminaryStory" - "File"."id"
+Ref: "Pitch"."keyStory" - "File"."id"
+Ref: "Pitch"."pitchText" - "File"."id"
+Ref: "User"."id" < "Pitch"."ownerId"
+
+Table Contact {
+  id int
+  ownerId int
+  firstName varchar
+  status enum
+  lastName varchar
+  company varchar
+  position varchar
+  email varchar
+  phone varchar
+  location varchar
+  subjects varchar
+  career string
+  avatar int
+  notes string
+  createdAt datetime
+ }
+ 
+Ref: "User"."id" < "Contact"."ownerId"
+Ref: "Contact"."id" < "ContactLists_Contact"."contactId"
+ 
+Table Subjects {
+   id int
+   contactId int
+   subject varchar
+ }
+ 
+Ref: "Contact"."id" < "Subjects"."contactId"
+
+Table ContactLists {
+  id int
+  ownerId int
+  title varchar
+  description varchar
+  createdAt datetime
+}
+
+Ref: "ContactLists"."id" < "Campaign_ContactList"."contactListId"
+Ref: "ContactLists"."id" < "ContactLists_Contact"."contactListId"
+
+Table ContactLists_Contact {
+  id int
+  contactListId int
+  contactId int
+}
+
+Ref: "User"."id" < "ContactLists"."ownerId"
+
+Table Campaign_ContactList {
+  id int
+  ownerId int
+  campaignId int
+  contactListId int
+}
+
+Ref: "User"."id" < "Campaign_ContactList"."ownerId"
+Ref: "Campaign"."id" < "Campaign_ContactList"."campaignId"
+
+// Creating references
+// You can also define relaionship separately
+// > many-to-one; < one-to-many; - one-to-one

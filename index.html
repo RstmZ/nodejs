@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en-us">
+
+<head xmlns:og="http://ogp.me/ns#">
+	<title>Speech to Text API | Speech Recognition Service - Rev.ai</title>
+	<meta property="og:title" content="Speech to Text API | Speech Recognition Service - Rev.ai" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Rev.ai" />
+	<meta property="og:description"
+		content="Rev.ai is the most accurate speech-to-text API on the market at only 3.5&#162;/min. Get your first transcript in minutes. Sign up for a free trial." />
+	<meta property="og:image" content="https://www.rev.ai/content/curve/img/revai/fb-og-vertical-dark.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:url" content="https://www.rev.ai/" />
+	<meta property="fb:app_id" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:site" content="@userevai" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description"
+		content="Rev.ai is the most accurate speech-to-text API on the market at only 3.5&#162;/min. Get your first transcript in minutes. Sign up for a free trial." />
+
+
+	<script src="/bundles/jquery.js?v=N9X31oj24lli1uVFpX6uj0M2WdN7GdgMjnvYEUoIx7s1"></script>
+
+	<script src="/bundles/react.js?v=PyzPyu6WyOuHae1m9aIQpgfgrDXQaaaTf9FWsEna35g1"></script>
+
+
+	<script>
+		(function() {
+        var d = document;
+        var c = d.createElement('script');
+        if (!('noModule' in c) && 'onbeforeload' in c) {
+            var s = false;
+            d.addEventListener('beforeload', function(e) {
+            if (e.target === c) {
+                s = true;
+            } else if (!e.target.hasAttribute('nomodule') || !s) {
+                return;
+            }
+            e.preventDefault();
+            }, true);
+
+            c.type = 'module';
+            c.src = '.';
+            d.head.appendChild(c);
+            c.remove();
+        }
+    }());
+	</script>
+	<script nomodule src="/build/polyfills.bundle.js?v=DF68FBD82B3D185374BD626C31DAF754" type="text/javascript">
+	</script>
+	<script src="/build/revai.bundle.js?v=A094E55E0280F1E2C7EADDD3EDC0DBC6" type="text/javascript"></script>
+	<script src="/build/curve-common.bundle.js?v=9ED7A0B834EA005DAA2211CEFBE25D7A" type="text/javascript"></script>
+
+	<link rel="shortcut icon" type="image/png" href="/content/curve/img/revai/favicon.png" />
+
+	<link href="/build/styles/pages/revai/bundle.css?v=16C2A29B40069BC311200CD49DFC2ADF" type="text/css"
+		rel="stylesheet" />
+
+	<script type="text/javascript">
+		rev_Mixpanel = new ft_Mixpanel('19cd662afae0b308cbafc2cf0292304b', '', 'revai', false);
+	</script>
+
+
+	<script>
+		$(function() {
+          rev_Mixpanel.trackLinks("mixpanel-link");
+       });
+	</script>
+	<script type="text/javascript">
+		(function () {
+        var now = new Date();
+        var offset = 0 - now.getTimezoneOffset();
+        var expire = new Date();
+        expire.setFullYear(now.getFullYear() + 5);
+        document.cookie = 'ft_tz=' + escape(offset) + ';expires=' + expire.toGMTString() + ';path=/'
+    })();
+	</script>
+
+	<!-- Google Tag Manager -->
+	<noscript>
+		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-K3FTRW4" height="0" width="0"
+			style="display: none; visibility: hidden"></iframe>
+	</noscript>
+	<script>
+		(function(w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start':
+                        new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-K3FTRW4');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+
+</head>
+
+<body id="home-page" class="proximanova flex flex-column h-100" ontouchstart="">
+	<div id="above-the-fold-bg" class="absolute w-100 cover"></div>
+	<div id="global-languages-banner" class="w-100 items-center justify-center white tc banner-insert dn">
+		<div>&#127881 Introducing Global Voice Recognition: Rev.ai in 26 More Major World Languages!</div>
+		<a target="_blank"
+			href="https://www.rev.ai/blog/introducing-global-voice-recognition-rev-ai-in-four-more-major-world-languages/"
+			class="pl2-ns white">Read More</a>
+	</div>
+
+
+
+	<div id="revai-navbar-container">
+		<nav class="flex justify-between items-center w-100 border-box pv3 ph4 fixed z-2" id="revai-navbar">
+			<div class="flex justify-between items-center v-mid tl mb0 w-25">
+				<a id="revai-header-home-link" class="mid-gray link dim" href="/" title="Home">
+					<div id="logo-mobile-container" class="dn-ns relative">
+						<img src="/Content/curve/img/revai/logo/logo-monochrome-mobile.svg?v=76F136BE3E012E4906DA024CE5F48456" id="logo-mobile-noscroll" class="absolute absolute--fill o-100" alt="RevAi Logo"/>
+						<img src="/Content/curve/img/revai/logo/logo-blue-mobile.svg?v=7CC7C341FC760EB080848C99C49BF371" id="logo-mobile-scroll" class="absolute absolute--fill o-0" alt="RevAi Logo"/>
+                </div>
+						<div id="logo-container" class="dn dib-ns relative">
+							<img src="/Content/curve/img/revai/logo/logo-monochrome.svg?v=925A75877C27CB779B84BB0FE50606D5" id="logo-noscroll" class="absolute absolute--fill o-100" alt="RevAi Logo"/>
+							<img src="/Content/curve/img/revai/logo/logo-blue.svg?v=9B36D336BC1BB097C0A8C52FE48916BF" id="logo-scroll" class="absolute absolute--fill o-0" alt="RevAi Logo"/>
+                </div>
+				</a>
+			</div>
+
+			<div class="dn show-nav-mapping flex-l items-center justify-center tc mb0 w-50">
+				<div id="products-menu" class="relative pr4" title="Products Menu">
+					<span id="revai-header-dropdown-name" class="navbar-link pointer f5">
+        Products
+        <span id="header-arrow" class="arrow"></span>
+					</span>
+
+					<div id="products-menu-content" class="dn">
+						<ul class="ma0 list ba bg-white left ph3 mv2 tl">
+							<li class="pt0 tc">
+								<a id="revai-header-product-async-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/async">
+									Asynchronous
+								</a>
+							</li>
+							<li class="pt3 tc">
+								<a id="revai-header-product-streaming-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/streaming">
+									Streaming
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+
+
+				<div id="use-cases-menu" class="relative pr4" title="Use Cases Menu">
+					<a id="revai-header-use-cases-link" class="dib-l navbar-link f5" href="/usecases" title="Use Cases">
+						Use Cases
+					</a>
+				</div>
+
+				<div id="pricing-menu" class="relative pr4" title="Pricing Menu">
+					<a id="revai-header-pricing-link" class="dib-l navbar-link f5" href="/pricing" title="Pricing">
+						Pricing
+					</a>
+				</div>
+
+				<div id="documentation-menu" class="relative" title="Documentation Menu">
+					<span id="revai-header-dropdown-name" class="navbar-link pointer f5">
+        Docs
+        <span id="header-arrow" class="arrow"></span>
+					</span>
+
+					<div id="documentation-menu-content" class="dn">
+						<ul class="ma0 list ba bg-white left ph3 mv2 tl">
+							<li class="pt0 tc">
+								<a id="revai-header-dropdown-overview-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/docs/overview">
+									Overview
+								</a>
+							</li>
+							<li class="pt3 tc">
+								<a id="revai-header-dropdown-async-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/docs">
+									Asynchronous API
+								</a>
+							</li>
+							<li class="pt3 tc">
+								<a id="revai-header-dropdown-streaming-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/docs/streaming">
+									Streaming API
+								</a>
+							</li>
+							<li class="pt3 tc">
+								<a id="revai-header-dropdown-streaming-link"
+									class="account-dropdown-link text-link dark-gray nowrap" href="/docs/changelog">
+									Changelog
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+
+			</div>
+
+			<div class="dn show-nav-mapping flex-l items-center justify-end v-mid tc w-25">
+				<div id="help-menu" class="relative pr4" title="Help Menu">
+					<a id="revai-header-help-link" class="navbar-link" href="https://help.rev.ai" title="Help">
+						Help
+					</a>
+				</div>
+				<div id="login-menu" class="relative pr4" title="Login">
+					<a id="revai-header-login-link" class="dib-l navbar-link f5" href="/auth/login" title="Login">
+						Login
+					</a>
+				</div>
+				<div class="dib relative" title="Signup">
+					<a id="account-signup-menu" class="button-revai-white-landing button-menu-revai"
+						href="/auth/signup">
+						Sign up
+					</a>
+				</div>
+
+
+			</div>
+			<div class="hide-side-menu-mapping">
+				<input type="checkbox" id="side-menu-check" class="dn" />
+				<label class="dib dn-l side-menu-overlay fixed absolute--fill o-0 bg-near-black overflow-scroll" for="side-menu-check"></label>
+				<label class="dib dn-l navbar-link f6 tracked-mega ttu pointer" for="side-menu-check">Menu</label>
+				<div
+					class="dib dn-l side-menu fixed right-0 top-0 bottom-0 pl4 pr4 bg-white overflow-scroll side-menu-width">
+					<label href="#" class="menu-close gray f2 fw3 absolute pointer" for="side-menu-check">&times;</label>
+					<div class="flex justify-between flex-column h-100 pt5 pb2">
+						<div>
+							<ul class="tl list pl0 f5">
+								<li class="pt3">
+									<div>
+										<div class="flex items-center pointer"
+											onclick="ToggleView('products-arrow', 'products-sidemenu-content')">
+											<div class="dark-gray b mr1">Products</div>
+											<span id="products-arrow" class="down-arrow"></span>
+										</div>
+										<div id="products-sidemenu-content" class="dn ml4">
+											<div class="pt3"><a class="dark-gray text-link"
+													href="/async">Asynchronous</a></div>
+											<div class="pt3"><a class="dark-gray text-link"
+													href="/streaming">Streaming</a></div>
+										</div>
+									</div>
+								</li>
+								<li class="pt3"><a class="dark-gray text-link b" href="/usecases">Use Cases</a></li>
+								<li class="pt3"><a class="dark-gray text-link b" href="/pricing">Pricing</a></li>
+								<li class="pt3">
+									<div class="flex items-center pointer"
+										onclick="ToggleView('documentation-arrow', 'documentation-sidemenu-content')">
+										<div class="dark-gray b mr1">Docs</div>
+										<span id="documentation-arrow" class="down-arrow"></span>
+									</div>
+									<div id="documentation-sidemenu-content" class="dn ml4">
+										<div class="pt3"><a id="revai-header-dropdown-overview-link"
+												class="dark-gray text-link" href="/docs/overview">Overview</a></div>
+										<div class="pt3"><a id="revai-header-dropdown-async-link"
+												class="dark-gray text-link" href="/docs">Asynchronous API</a></div>
+										<div class="pt3"><a id="revai-header-dropdown-streaming-link"
+												class="dark-gray text-link" href="/docs/streaming">Streaming API</a>
+										</div>
+										<div class="pt3"><a id="revai-header-dropdown-streaming-link"
+												class="dark-gray text-link" href="/docs/changelog">Changelog</a></div>
+									</div>
+								</li>
+							</ul>
+
+							<ul class="tl list pl0 f5">
+								<li class="pt3"><a class="dark-gray text-link b contact-btn pointer">Talk to an
+										Expert</a></li>
+								<li class="pt3"><a class="dark-gray text-link b" href="/auth/login">Login</a></li>
+								<li class="pt3"><a class="button-revai-dark-blue button-menu-revai"
+										href="/auth/signup">Sign Up</a></li>
+							</ul>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<script>
+		window.onscroll = window.revai.InitNavBar;
+	</script>
+
+
+	<div id="site-content">
+
+
+
+
+
+
+		<!-- Google recaptcha -->
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+		<!-- generic CSRF antiforgery token -->
+		<form action="/" id="__AjaxAntiForgeryForm" method="post">
+			<input name="__RequestVerificationToken" type="hidden" value="JsTA-tg5rxBz5VQ7b4a1EfwRept1wy7vPcO-tqZxuxN4Yfek77rChVU9ecePtmEJCUnulYfj_VjFp48p0IHWT1uAJuw1" /></form>
+			<script>
+				function show_curl_snippet() {
+        document.getElementById("curl-example").style.display = "block";
+        document.getElementById("node-example").style.display = "none";
+        document.getElementById("python-example").style.display = "none";
+        document.getElementById("curl-toggle").className = "integration-button selected";
+        document.getElementById("node-toggle").className = "integration-button";
+        document.getElementById("python-toggle").className = "integration-button";
+    }
+    function show_node_snippet() {
+        document.getElementById("curl-example").style.display = "none";
+        document.getElementById("node-example").style.display = "block";
+        document.getElementById("python-example").style.display = "none";
+        document.getElementById("curl-toggle").className = "integration-button";
+        document.getElementById("node-toggle").className = "integration-button selected";
+        document.getElementById("python-toggle").className = "integration-button";
+    }
+    function show_python_snippet() {
+        document.getElementById("curl-example").style.display = "none";
+        document.getElementById("node-example").style.display = "none";
+        document.getElementById("python-example").style.display = "block";
+        document.getElementById("curl-toggle").className = "integration-button";
+        document.getElementById("node-toggle").className = "integration-button";
+        document.getElementById("python-toggle").className = "integration-button selected";
+    }
+			</script>
+
+
+
+			<div id="home-page-info-section" class="w-100">
+				<div class="center mw9 pb6 pb7-l">
+					<div class="flex justify-around pt6-l pt5 pb5-l pb3 mh4">
+						<div class="white mh0-l hero-text-box">
+							<h1 class="tc tl-l landing-heading fw8 mb4">Accurate Speech-to-Text APIs for all of your
+								speech recognition needs</h1>
+							<p class="tl di-l dn center f5 fw2 lh-wide mb4 mt0">
+								Rev.ai's suite of speech-to-text APIs allows businesses to build powerful downstream
+								applications.
+								We train our speech engine on 50,000+ hours of human-transcribed content from a wide
+								range of topics, industries, and accents.
+								The result? You get access to the most accurate speech recognition products on the
+								market.
+							</p>
+							<p class="tc db dn-l center f5 fw2 lh-wide mb4 mt0 mt4-ns">Get more out of your audio and
+								video with our unmatched accuracy in an easy-to-use API.</p>
+							<div class="flex justify-center flex-wrap fl-l fc mt4">
+								<div id="info-section-button" class="dib-l dn mb3-l mb3">
+									<a id="revai-homepage-create-account-btn-top"
+										class="button-revai-large button-revai-white-landing mixpanel-link"
+										data-mixpanel-title="Home: Clicked Sign Up" data-mixpanel-location="Homepage"
+										href="/auth/signup">
+										Try Free Now
+									</a>
+
+								</div>
+								<div id="info-section-button" class="dib dn-l mb3 w-100">
+									<a id="revai-homepage-create-account-btn-top"
+										class="button-revai-large button-revai-white-landing mixpanel-link"
+										data-mixpanel-title="Home: Clicked Sign Up" data-mixpanel-location="Homepage"
+										href="/auth/signup">
+										Try Free Now
+									</a>
+
+								</div>
+								<div class="ph4">
+									<a id="hero-talk-to-expert-btn" class="contact-btn button-text mixpanel-link"
+										data-mixpanel-title="Home: Clicked Schedule A Call Now"
+										data-mixpanel-location="Homepage">
+										Schedule A Call Now
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="flex-l content-center dn mt0-l mt4">
+							<img src="/Content/curve/img/revai/home/waveform.svg?v=A99E10F05C19F1FC98E26BBFAD2DABDF" id="" class="" alt="speech to text API sound waves"/>
+            </div>
+						</div>
+					</div>
+				</div>
+
+				<div id="trusted-by-section" class="center mw9 bg-white">
+					<div class="flex-l flex-wrap justify-center mh4 mt5 mt6-ns mt4-l">
+						<section id="industry-logos" class="w-100">
+							<div class="flex justify-around items-center flex-wrap h4 mt0">
+								<svg class="tc dib relative industry-logo vice">
+									<use
+										xlink:href="/Content/curve/img/revai/home/industry-logos/industry-logos.symbol.svg?v=D711FDC1CAB16768DA572E980BD55B57#vice">
+									</use>
+								</svg><svg class="tc dib relative industry-logo brainshark">
+									<use
+										xlink:href="/Content/curve/img/revai/home/industry-logos/industry-logos.symbol.svg?v=D711FDC1CAB16768DA572E980BD55B57#brainshark">
+									</use>
+								</svg><svg class="tc dib relative industry-logo descript">
+									<use
+										xlink:href="/Content/curve/img/revai/home/industry-logos/industry-logos.symbol.svg?v=D711FDC1CAB16768DA572E980BD55B57#descript">
+									</use>
+								</svg><svg class="tc dib relative industry-logo iconik">
+									<use
+										xlink:href="/Content/curve/img/revai/home/industry-logos/industry-logos.symbol.svg?v=D711FDC1CAB16768DA572E980BD55B57#iconik">
+									</use>
+								</svg><svg class="tc dib relative industry-logo depodirect">
+									<use
+										xlink:href="/Content/curve/img/revai/home/industry-logos/industry-logos.symbol.svg?v=D711FDC1CAB16768DA572E980BD55B57#depodirect">
+									</use>
+								</svg> </div>
+						</section>
+					</div>
+
+				</div>
+
+
+
+				<div id="why-section" class="w-100 bg-white">
+
+					<div class="center mw9 pv6-l pv5-ns pv4 ph4-l">
+						<div class="mh4 mb5-l mb4 landing-heading fw8 tc near-black">Why Rev.ai?</div>
+						<div>
+							<div class="flex flex-wrap flex-nowrap-l">
+								<div class="flex w-33-l w-100">
+									<div class="flex flex-column justify-start center w-100 tl pa3">
+										<div class="industry-image-width">
+											<img src="/Content/curve/img/revai/home/accuracy.svg?v=B17D2F725B9AF7C6A4FA938022BEB3D4" id="" class="" alt=""/>
+            </div>
+											<div class="b f4 pv3 dark-gray">Build better products</div>
+											<div class="f5 lh-wide dark-gray">We train our speech models on 50,000+
+												hours of verbatim transcribed speech data to produce the most accurate
+												API-driven automated speech recognition engine.</div>
+											<a class="mt3 landing-link" href=/compare> See how Rev.ai compares to the
+												competition </a> </div> </div> <div class="flex w-33-l w-100">
+												<div class="flex flex-column justify-start center w-100 tl pa3">
+													<div class="industry-image-width">
+														<img src="/Content/curve/img/revai/asynchronous/fast-delivery.svg?v=E7086EF2CC19860962508FD4FAB2AB2C" id="" class="" alt=""/>
+            </div>
+														<div class="b f4 pv3 dark-gray">Reduce time to market</div>
+														<div class="f5 lh-wide dark-gray">You can integrate in hours,
+															not days or weeks. Our collection of SDKs get you up and
+															running in no time.</div>
+													</div>
+												</div>
+
+												<div class="flex w-33-l w-100">
+													<div class="flex flex-column justify-start center w-100 tl pa3">
+														<div class="industry-image-width">
+															<img src="/Content/curve/img/revai/home/flexible-deployment.svg?v=24B9E54272C057221B919E1C6405C275" id="" class="" alt=""/>
+            </div>
+															<div class="b f4 pv3 dark-gray">Expand your offering</div>
+															<div class="f5 lh-wide dark-gray">You can transcribe from
+																any cloud storage provider; no limitations for you or
+																your customers.</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="mt5-l flex flex-wrap flex-nowrap-l">
+													<div class="flex w-33-l w-100">
+														<div class="flex flex-column justify-start center w-100 tl pa3">
+															<div class="industry-image-width">
+																<img src="/Content/curve/img/revai/home/reliability.svg?v=AC9D08A1A1923A96BC86EB4543757CD3" id="" class="" alt=""/>
+            </div>
+																<div class="b f4 pv3 dark-gray">Go-to-market with
+																	confidence</div>
+																<div class="f5 lh-wide dark-gray">We maintain 99.99%
+																	uptime and are on call to respond to security alerts
+																	and events.</div>
+															</div>
+														</div>
+
+														<div class="flex w-33-l w-100">
+															<div
+																class="flex flex-column justify-start center w-100 tl pa3">
+																<div class="industry-image-width">
+																	<img src="/Content/curve/img/revai/home/security.svg?v=0D597FCAA2396630DD846A5784E851D3" id="" class="" alt=""/>
+            </div>
+																	<div class="b f4 pv3 dark-gray">Control your data
+																	</div>
+																	<div class="f5 lh-wide dark-gray">All files are
+																		encrypted both at rest and in transit via
+																		industry best-practices. You can delete files
+																		permanently with a simple API call.</div>
+																	<a class="mt3 landing-link" href=/security> Learn
+																		More </a> </div> </div> <div
+																		class="flex w-33-l w-100">
+																		<div
+																			class="flex flex-column justify-start center w-100 tl pa3">
+																			<div class="industry-image-width">
+																				<img src="/Content/curve/img/revai/home/learn-from-audio.svg?v=DF739C87F609CE00D321FEC0AEE1384A" id="" class="" alt=""/>
+            </div>
+																				<div class="b f4 pv3 dark-gray">Learn
+																					from your audio</div>
+																				<div class="f5 lh-wide dark-gray">Drill
+																					into insights with advanced
+																					punctuation, per-word confidence
+																					scores, the industry’s largest
+																					custom vocabulary, and speaker
+																					diarization.</div>
+																			</div>
+																		</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div id="voice-power-section" class="w-100 bg-off-white">
+														<div class="mw9 center mt2 ph5-l pt5-l pb6-l pt4 pb5 ph3">
+															<div class="mb5-ns mb4 landing-heading fw8 tc">Overcome the
+																limits of spoken word</div>
+															<div class="justify-center flex flex-wrap flex-nowrap-l">
+																<div
+																	class="mw6-ns w-40-l w-100 pa5-ns pa4 card flex-column mr5-l">
+																	<div class="f3-ns f4 fw8 ttu">Asynchronous</div>
+																	<div class="f3-ns f4 fw4 mt2">Speech-to-Text-API
+																	</div>
+																	<div class="f5 lh-wide mv3 pv2">Audio transcription
+																		for pre-recorded audio.</div>
+																	<div class="pt3-ns">
+																		<a class="landing-link" href="/async">
+																			Learn more
+																		</a>
+																	</div>
+																</div>
+																<div
+																	class="mw6-ns w-40-l w-100 pa5-ns pa4 card flex-column mt0-l mt4">
+																	<div class="f3-ns f4 fw8 ttu">Streaming</div>
+																	<div class="f3-ns f4 fw4 mt2">Speech-to-Text-API
+																	</div>
+																	<div class="f5 lh-wide mv3 pv2">Real-time audio
+																		transcription.</div>
+																	<div class="pt3-ns">
+																		<a class="landing-link" href="/streaming">
+																			Learn more
+																		</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div id="accuracy-section" class="w-100 bg-white">
+														<div
+															class="mw9 center pv6-l pt5-ns pb4 ph3-ns ph5-l w-100 flex flex-column flex-row-l items-center-l">
+															<div class="w-100 w-50-l">
+																<div
+																	class="accuracy-graph shadow-4 bg-white w-100 tc pv4 ph4 br3">
+																	<h2
+																		class="f4 pb2 mb3 mb4-ns mt1 mt3-ns fw5 dn db-ns">
+																		Rev.ai's English Transcript Word Error Rate
+																		(WER)
+																	</h2>
+																	<img src="/Content/curve/img/revai/home/wer-graph.svg?v=78098660193C4ABEBCAB9F5A8F9ED310" id="" class="center db-ns dn mb3" alt=""/>
+																	<h2 class="f4 pb2 mb3 mb4-ns mt1 mt3-ns fw5 dn-ns">
+																		Rev.ai's English Transcript Accuracy
+																	</h2>
+																	<img src="/Content/curve/img/revai/home/wer-graph-mobile.svg?v=8BA11FAB1D4E17DBA0CE0E9F7FDF2A0F" id="" class="center dn-ns db mb4" alt=""/>
+																	<img src="/Content/curve/img/revai/home/wer-graph-mobile-legend.svg?v=A5F1CDDF50122D27E0BA586DBD914F7A" id="" class="center dn-ns db" alt=""/>
+        </div>
+																</div>
+																<div class="w-100 w-50-l pl5-l ph0-ns ph3">
+																	<div>
+																		<img src="/Content/curve/img/revai/home/accuracy-target.svg?v=014445FEE048A09AEA0442DBD59EE989" id="" class="db-l dn mb4" alt=""/>
+																		<div
+																			class="tl mb3 mt4 pt5 pt0-l landing-heading fw8">
+																			Best-in-class accuracy</div>
+																		<div class="mb3 dark-gray lh-wide">
+																			When transcription accuracy matters, you can
+																			count on Rev.ai.
+																		</div>
+																		<a class="landing-link blue fw5 f6 tracked ttu lh-wide"
+																			href="https://www.rev.com/blog/the-podcast-challenge-testing-rev-ais-speech-recognition-accuracy"
+																			target="_blank">
+																			See how Rev.ai compares to the competition
+																		</a>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+
+														<div id="integration-section" class="w-100 bg-white">
+															<div
+																class="mw9 center pa6-l pv5 ph3 w-100 flex flex-column flex-row-l">
+																<div class="w-50-l w-100 mr4-ns mb4 mb0-l">
+																	<div class="center w-100 tl">
+																		<div
+																			class="f3 lh-solid landing-heading fw8 mb3 pb2 tl">
+																			Simple integration</div>
+																		<div class="mb3 pb2 dark-gray lh-wide">
+																			Our easy-to-use API is designed by
+																			developers for developers.
+																			We provide you with SDKs, comprehensive
+																			documentation, and expert
+																			support so you can get started in minutes.
+																			All you need to
+																			generate your first transcript is an access
+																			token.
+																		</div>
+																		<a class="landing-link"
+																			href="https://www.rev.ai/docs">Explore
+																			Documentation</a>
+																	</div>
+																</div>
+																<div id="async-code-examples-view"
+																	class="w-100 w-50-l card pa3 code-examples">
+																	<div
+																		class="integration-langs flex inline-flex-ns flex-column flex-row-ns flex-wrap-ns items-center mb2">
+																		<div class="integration-lang">
+																			<div id="python-toggle"
+																				class="integration-button selected"
+																				onclick="show_python_snippet()">
+																				Python
+																			</div>
+																		</div>
+																		<div class="integration-lang">
+																			<div id="node-toggle"
+																				class="integration-button"
+																				onclick="show_node_snippet()">
+																				Node
+																			</div>
+																		</div>
+																		<div class="integration-lang">
+																			<div id="curl-toggle"
+																				class="integration-button"
+																				onclick="show_curl_snippet()">
+																				curl
+																			</div>
+																		</div>
+																	</div>
+																	<div id="python-example">
+																		<script
+																			src="https://gist.github.com/k-weng/9ecd5c7b4fcec5078fddaf166a674011.js">
+																		</script>
+																	</div>
+																	<div id="node-example" class="dn">
+																		<script
+																			src="https://gist.github.com/k-weng/fc554b83d7fdfe6d366891aee62c2ca8.js">
+																		</script>
+																	</div>
+																	<div id="curl-example" class="dn">
+																		<script
+																			src="https://gist.github.com/k-weng/6cdd68e909c104ff28e0573c1351f490.js">
+																		</script>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+
+														<div id="build-with-revai" class="w-100 bg-off-white">
+
+
+															<div class="mw9 center pv5 pv6-l ph3 w-100">
+																<h1 class="landing-heading tc mt0">Transcend barriers of
+																	communication with Rev.ai</h1>
+																<div id="build-with-revai-section-buttons"
+																	class="flex flex-column flex-row-l flex-row-m items-center justify-center-ns mt4 mt5-l">
+																	<div class="dib-l dib-m dn">
+																		<a id="revai-homepage-create-account-btn-bottom"
+																			class="button-revai-large button-revai-dark-blue mixpanel-link"
+																			data-mixpanel-title="Home: Clicked Try It Free"
+																			data-mixpanel-location="Homepage"
+																			href="/auth/signup">
+																			Try Free Now
+																		</a>
+
+																	</div>
+																	<div class="dib dn-l dn-m w-100">
+																		<a id="revai-homepage-create-account-btn-bottom"
+																			class="button-revai-large button-revai-dark-blue mixpanel-link"
+																			data-mixpanel-title="Home: Clicked Try It Free"
+																			data-mixpanel-location="Homepage"
+																			href="/auth/signup">
+																			Try Free Now
+																		</a>
+
+																	</div>
+																	<div class="dib-l dib-m dn ml3">
+																		<a id="revai-home-contact-btn-bottom"
+																			class="contact-btn button-revai-large button-revai-dark-blue-outline mixpanel-link"
+																			data-mixpanel-title="Home: Clicked Schedule a Call"
+																			data-mixpanel-location="Homepage">
+																			Schedule a Call
+																		</a>
+
+																	</div>
+																	<div class="dib dn-l dn-m mt3 ml0 w-100">
+																		<a id="revai-home-contact-btn-bottom"
+																			class="contact-btn button-revai-large button-revai-dark-blue-outline mixpanel-link"
+																			data-mixpanel-title="Home: Clicked Schedule a Call"
+																			data-mixpanel-location="Homepage">
+																			Schedule a Call
+																		</a>
+
+																	</div>
+																</div>
+															</div>
+
+														</div>
+
+														<div id="home-contact-modal" />
+
+
+
+													</div>
+
+													<footer class="flex-none bg-navy w-100 pt4 pt5-ns pb4">
+														<div
+															class="mw9 center white ph4 pb2 pb0-ns ph5-l flex flex-row flex-wrap justify-between-l">
+															<div class="pr4 footer-section mb4 w-50 w-auto-l">
+																<span class="white ttu">Product</span>
+																<ul class="f6 o-80 pl0 mt2 ma0">
+																	<li class="list pl0 pt2" title="Asynchronous">
+																		<a class="revai-footer-text-link"
+																			href="/async">Asynchronous</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Streaming">
+																		<a class="revai-footer-text-link"
+																			href="/streaming">Streaming</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Pricing">
+																		<a class="revai-footer-text-link"
+																			href="/pricing">Pricing</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Documentation">
+																		<a class="revai-footer-text-link"
+																			href="/docs/overview">Documentation</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Compare">
+																		<a class="revai-footer-text-link"
+																			href="/compare">Compare</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Use Cases">
+																		<a class="revai-footer-text-link"
+																			href="/usecases">Use Cases</a>
+																	</li>
+																</ul>
+															</div>
+
+															<div class="pr4 footer-section mb4 w-50 w-auto-l">
+																<span class="white ttu">Get Started</span>
+																<ul class="f6 o-80 pl0 mt2 ma0">
+																	<li class="list pl0 pt2" title="Sign Up">
+																		<a class="revai-footer-text-link"
+																			href="/auth/signup">Sign Up</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Help Center">
+																		<a class="revai-footer-text-link"
+																			href="https://help.rev.ai">Help Center</a>
+																	</li>
+																</ul>
+															</div>
+
+															<div class="pr4 footer-section mb4 w-50 w-auto-l">
+																<span class="white ttu">Company</span>
+																<ul class="f6 o-80 pl0 mt2 ma0">
+																	<li class="list pl0 pt2" title="About Rev.ai">
+																		<a class="revai-footer-text-link"
+																			href="/about">About Rev.ai</a>
+																	</li>
+																	<li class="list pl0 pt2" title="Blog">
+																		<a class="revai-footer-text-link"
+																			href="https://www.rev.ai/blog">Blog</a>
+																	</li>
+																	<li class="list pl0 pt2"
+																		title="Security &amp; Privacy">
+																		<a class="revai-footer-text-link"
+																			href="/security">Security &amp; Privacy</a>
+																	</li>
+																</ul>
+															</div>
+
+
+															<div class="footer-section dtc v-mid tl mb0">
+																<span class="white ttu">Get in touch</span>
+																<ul class="f6 o-80 pl0 mt2 ma0">
+																	<li class="list pl0 pt1" title="Get in touch">
+																		<div class="w-50 w-auto-ns lh-title">
+																			222 Kearny St, 8th Floor<br>
+                        San Francisco, CA<br>
+                        94108
+                    </div>
+																	</li>
+																	<li class="pt3 list"></li>
+																	<li class="list pl0 pt1" title="Contact Us">
+																		<div id="footer-contact-us"
+																			class="w-50 w-auto-ns mb1">Contact Us</div>
+																		<a id="footer-support-email"
+																			class="revai-footer-text-link"
+																			href="mailto:support@rev.ai">support@rev.ai</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="mw9 center mt3 w-100 f6 o-80 white pb3 ph4 ph5-l">
+															<span class="mr3">&copy; Rev</span>
+															<a class="mh2 footer-text-link" href="/about/terms"
+																rel="nofollow">Terms</a> |
+															<a class="mh2 footer-text-link" href="/about/privacy"
+																rel="nofollow">Privacy</a> |
+															<a class="mh2 footer-text-link"
+																href="/about/privacy#ca-privacy" rel="nofollow">CA
+																Privacy</a>
+														</div>
+													</footer>
+
+
+													<script type="text/javascript">
+														window.revai.InitContactModal({
+            rootElement: "home-contact-modal",
+            toggleButtonClass: "contact-btn",
+            pardotEndpoint: "https://enterprise.rev.com/l/756353/2020-06-30/2jp38",
+            showSuccess: false
+        });
+
+        $(function () {
+            $('#account-signup-menu').click(function () {
+                window.rev_Mixpanel.trackEvent("Nav: Clicked Sign Up", { 'location': 'Homepage' });
+            });
+        });
+
+        $(function () {
+            $('#pricing-regular').click(function () {
+                window.rev_Mixpanel.trackEvent("Home: Clicked Try It Free", { 'location': 'Homepage' });
+            });
+        });
+
+        $(function () {
+            $('#pricing-enterprise').click(function () {
+                window.rev_Mixpanel.trackEvent("Home: Clicked Schedule A Call Now", { 'location': 'Homepage' });
+            });
+        });
+													</script>
+
+													<script type="text/javascript">
+														window.Curve.Controls.Menu('#products-menu', '#products-menu-content');
+													</script>
+
+													<script type="text/javascript">
+														window.Curve.Controls.Menu('#documentation-menu', '#documentation-menu-content');
+													</script>
+
+													<script type="text/javascript">
+														function Logout() {
+            window.revai.Fetch["json"]('/auth/logout', "POST").then(() => {
+                location.href = "/"
+            });
+        }
+        function ToggleView(arrowId, viewId) {
+            var arrowElem = document.getElementById(arrowId);
+            var contentElem = document.getElementById(viewId);
+            if (arrowElem.className == "down-arrow") {
+                contentElem.className = "db ml4";
+                arrowElem.className = "up-arrow";
+            }
+            else {
+                contentElem.className = "dn ml4";
+                arrowElem.className = "down-arrow";
+            }
+        }
+													</script>
+
+
+</body>
+
+</html>
